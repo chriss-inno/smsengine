@@ -1,0 +1,103 @@
+            <!--Title section -->
+            <?php $__env->startSection('section-title'); ?>
+              Register New Employee
+            <?php $__env->stopSection(); ?>
+            <!--End Title section  -->
+             <!--Dashboard Section -->
+              <?php $__env->startSection('contents'); ?>
+            <div class="row">
+                
+               <?php echo Form::open(array('url' => 'users','role'=>'form','id'=>'frmdata')); ?>
+
+
+                  <div class="form-group">
+                    <div class="row">
+                       <div class="col-sm-6"> 
+                       <?php echo Form::label('fname','First Name'); ?>
+
+                       <?php echo Form::text('fname',Input::old('fname'),array('class'=>'form-control','id'=>'fname','required'=>'required')); ?>
+
+                       <h4 class="text-danger"> <?php echo $errors->first('fname'); ?></h4>
+                       </div>
+                       <div class="col-sm-6"> 
+
+                       <?php echo Form::label('lname','Last Name'); ?>
+
+                       <?php echo Form::text('lname',Input::old('lname'),array('class'=>'form-control','id'=>'lname','required'=>'required')); ?>
+
+                       <h4 class="text-danger"> <?php echo $errors->first('lname'); ?></h4>
+                   
+                       </div>
+                  </div>
+                 
+                  <div class="form-group">
+                   <div class="row">
+                       <div class="col-sm-6"> 
+                         <?php echo Form::label('phone','Phone Number'); ?>
+
+                         <?php echo Form::text('phone',Input::old('phone'),array('class'=>'form-control','id'=>'phone')); ?>
+
+                         <h4 class="text-danger"> <?php echo $errors->first('phone'); ?></h4>
+                       </div>
+                       <div class="col-sm-6">
+                         <?php echo Form::label('email','Email'); ?>
+
+                         <?php echo Form::text('email',Input::old('email'),array('class'=>'form-control','id'=>'email')); ?>
+
+                         <h4 class="text-danger"> <?php echo $errors->first('email'); ?></h4>
+                       </div>
+                  </div>
+                  
+                  <div class="form-group">
+                   <div class="row">
+                       <div class="col-sm-4"> 
+                       <?php echo Form::label('sex','Sex'); ?>
+
+                       <?php echo Form::select('sex',array(null=>'--Select--','male'=>'Male','femail'=>'Female'),Input::old('sex'),array('class'=>'form-control','id'=>'sex')); ?>
+
+                       <h4 class="text-danger"> <?php echo $errors->first('sex'); ?></h4>
+                       </div>
+
+                    </div>
+                  </div>
+                  <div class="form-group">
+                   
+                       <?php echo Form::label('role','System role'); ?>
+
+                       <?php echo Form::select('role',array(null=>'--Select Role--','admin'=>'Administrator','normal'=>'normal'),Input::old('role'),array('class'=>'form-control','id'=>'sex')); ?>
+
+                      <h4 class="text-danger"> <?php echo $errors->first('role'); ?></h4>
+                 
+                  <div class="form-group">
+                     <div class="row">
+                    <div class="col-sm-6"> 
+                        <?php echo Form::label('username','Username'); ?>
+
+                       <?php echo Form::text('username',Input::old('username'),array('class'=>'form-control','id'=>'username','required'=>'required')); ?>
+
+                       <h4 class="text-danger"> <?php echo $errors->first('username'); ?></h4>
+                    </div>
+                    <div class="col-sm-6"> 
+                       <?php echo Form::label('password','Password'); ?>
+
+                       <?php echo Form::password('password',array('class'=>'form-control','id'=>'pass','required'=>'required')); ?>
+
+                       <h4 class="text-danger"> <?php echo $errors->first('password'); ?></h4>
+                    </div>
+                  </div>
+             <div class="form-group" style="margin-top:10px;">
+
+                    <?php echo Form::submit('Confirm Save',array('class'=>'btn btn-primary','id'=>'save')); ?>
+
+
+                </div>
+
+               <?php echo Form::token() . Form::close(); ?>
+
+
+
+
+</div>
+  <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make("layout.master", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

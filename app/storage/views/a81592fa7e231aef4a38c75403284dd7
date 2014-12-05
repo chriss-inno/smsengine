@@ -1,0 +1,21 @@
+            <!--Title section -->
+            <?php $__env->startSection('section-title'); ?>
+              All Messages under Bloadcast Schedule
+            <?php $__env->stopSection(); ?>
+            <!--End Title section  -->
+             <!--Dashboard Section -->
+              <?php $__env->startSection('contents'); ?>
+            
+                 <div class="row" style="margin-bottom:10px;">
+                    <div class="col-sm-2 col-sm-offset-8 ">
+                       <a data-toggle="modal" href="<?php echo url('msgschedule'); ?>" class="btn btn-primary"> Create Schedule</a>
+                    </div>
+                    <div class="col-sm-2 ">
+                       <a data-toggle="modal" href="<?php echo url('msgschedule'); ?>" class="btn btn-info"> Export to Ms Excell</a>
+                    </div>
+                </div>
+                <?php echo $__env->make('messages.listmschedule', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+           
+       <?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout.master", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

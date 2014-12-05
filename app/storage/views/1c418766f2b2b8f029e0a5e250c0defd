@@ -1,0 +1,115 @@
+<?php $__env->startSection('breadcrumb'); ?>
+       <li><a href="<?php echo url("home"); ?>">Home</a></li>
+       <li><a href="<?php echo url("users"); ?>">User Management</a></li>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('contents'); ?>
+
+     <div id="listuser">
+     <div class="row">
+    <div class="box col-md-12">
+    <div class="box-inner">
+    <div class="box-header well" data-original-title="">
+        <h2><i class="glyphicon glyphicon-user"></i> Manage Users</h2>
+
+        <div class="box-icon">
+            <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-user"></i>New User</a>
+            
+        </div>
+    </div>
+    <div class="box-content">
+   
+<?php echo $__env->make("user.list", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </div>
+    </div>
+    </div>
+    <!--/span-->
+
+    </div>
+     </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+           <?php echo Form::open(array("url"=>route('adduser'),"class"=>"form-horizontal","id"=>'FileUploader')); ?>
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h3>Register New User</h3>
+                </div>
+                <div class="modal-body">
+                     <div class="row">
+                    
+                     <div class="form-group">
+                          <div class="col-sm-6">
+                            <?php echo Form::label('name', 'Full Name'); ?>
+
+                            <?php echo Form::text('name',null, array('class'=>'form-control',
+                            'placeholder'=>'Enter Full name','required'=>'required')); ?>
+
+                          </div>
+                          <div class="col-sm-6">
+                           <?php echo Form::label('email', 'Email'); ?>
+
+                           <?php echo Form::text('email',null, array('class'=>'form-control','placeholder'=>'Enter Email')); ?>
+
+                          </div>
+                          
+                      </div>
+                      
+                       <div class="form-group">
+                          <div class="col-sm-6">
+                           <?php echo Form::label('phone', 'Phone Number'); ?>
+
+                           <?php echo Form::text('phone',null, array('class'=>'form-control','placeholder'=>'Enter Phone number')); ?>
+
+                          </div>
+                          <div class="col-sm-6">
+                           <?php echo Form::label('username', 'Username'); ?>
+
+                           <?php echo Form::text('username',null,array('class'=>'form-control',
+                             'placeholder'=>'Enter Username','required'=>'required')); ?>
+
+                          </div>
+                       </div>
+                       
+					   <div class="form-group">
+                          <div class="col-sm-6">
+                           <?php echo Form::label('pass', 'Password'); ?>
+
+                           <?php echo Form::password('pass',array('class'=>'form-control',
+                           'placeholder'=>'Enter Password','required'=>'required')); ?>
+
+                          </div>
+                          <div class="col-sm-6">
+                           <?php echo Form::label('confirmpass', 'Confirm Password'); ?>
+
+                           <?php echo Form::password('confirmpass',array('class'=>'form-control','placeholder'=>'Re-Password','required'=>'required')); ?>
+
+                          </div>
+                       </div>
+                       
+                       <div class="form-group">
+                          <div class="col-sm-12">
+                           <div id="output"></div>
+                          </div>
+                       </div>
+                       
+                   </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                    <?php echo Form::submit('Add User',array('class'=>'btn btn-primary','id'=>'submitqn')); ?>
+
+                     
+                </div>
+            </div>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+    
+	 <script type="text/javascript" language="javascript">
+       
+    </script>
+   <?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout.master", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

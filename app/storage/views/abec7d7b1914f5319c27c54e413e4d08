@@ -1,0 +1,25 @@
+
+
+            <!--Title section -->
+            <?php $__env->startSection('section-title'); ?>
+              Message Categories
+            <?php $__env->stopSection(); ?>
+            <!--End Title section  -->
+             <!--Dashboard Section -->
+              <?php $__env->startSection('contents'); ?>
+            
+                <div class="row" style="margin-bottom:10px;">
+                    <div class="col-sm-2 col-sm-offset-10 ">
+                       <a data-toggle="modal" href="<?php echo url('subscriptions/create'); ?>" class="btn btn-primary"> Add Category</a>
+                    </div>
+                </div>
+
+                <?php echo $__env->make('subscriptions.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php echo HTML::script("assets/bootstrap.min.js"); ?>
+
+<?php echo HTML::script("assets/jquery.min.js"); ?>
+
+
+       <?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout.master", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

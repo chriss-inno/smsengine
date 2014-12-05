@@ -1,0 +1,44 @@
+
+    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+    <thead>
+    <tr>
+        <th>SN</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Date registered</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($Subscribers as $Subscriber): ?>
+    <tr>
+        <td>1</td>
+        <td><?php echo $Subscriber->name; ?></td>
+        <td><?php echo $Subscriber->username; ?></td>
+        <td class="center"><?php echo $Subscriber->created_at; ?></td>
+        <td class="center"><?php echo $Subscriber->role; ?></td>
+        <td class="center">
+            <span class="label-success label label-default"><?php echo $Subscriber->status; ?></span>
+        </td>
+        <td class="center">
+            <a class="btn btn-success" href="#">
+                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                View
+            </a>
+            <a class="btn btn-info" href="#">
+                <i class="glyphicon glyphicon-edit icon-white"></i>
+                Edit
+            </a>
+            <a class="btn btn-danger" href="#">
+                <i class="glyphicon glyphicon-trash icon-white"></i>
+                Delete
+            </a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+    </table>
+    
+    

@@ -1,0 +1,153 @@
+@extends("layout.master")
+
+            <!--Title section -->
+            @section('section-title')
+              Dash Board
+            @stop
+            <!--End Title section  -->
+             <!--Dashboard Section -->
+              @section('contents')
+            <div class="row">
+                <!-- Welcome -->
+                <div class="col-lg-12">
+                    <div class="alert alert-info">
+                        <i class="fa fa-folder-open"></i><b>&nbsp;Hello ! </b>Welcome <b>Mohamed Baruti </b>
+
+                    </div>
+                </div>
+                <!--end  Welcome -->
+            </div>
+
+
+            <div class="row">
+                <!--quick info section -->
+                <div class="col-lg-3">
+                    <div class="alert alert-danger text-center">
+                        <i class="fa fa-user fa-3x"></i>&nbsp;<b>20 </b>Total Staff in This Month
+
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="alert alert-success text-center">
+                        <i class="fa fa-user fa-3x"></i>&nbsp;<b>27 % </b>Subscribers in This Month  
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="alert alert-info text-center">
+                        <i class="fa fa-envelope fa-3x"></i>&nbsp;<b>1,900</b>Sent Messages in This Month
+
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="alert alert-warning text-center">
+                        <i class="fa fa-dashboard fa-3x"></i>&nbsp;<b>{{count(Message::all())}} </b>Schedule Messages in This Month
+                    </div>
+                </div>
+                <!--end quick info section -->
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <!--  Area Chart -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                           Messages Comparison per month ({{date("M,Y")}})
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+                        </div>
+                    </div>
+                    <!-- End Area Chart -->
+                    <div class="col-lg-12">
+                  <!-- Notifications-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i>Notifications Panel
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-comment fa-fw"></i>New Message
+                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-twitter fa-fw"></i>3 New Subscriber
+                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i>Message Sent
+                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i>Message Pending
+                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i>Deleted Messages
+                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                    </span>
+                                </a>
+                                
+
+                            </div>
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                        </div>
+
+                    </div>
+                    <!--End Notifications-->
+                    </div>
+                   
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="panel panel-primary text-center no-boder">
+                        <div class="panel-body yellow">
+                            <i class="fa fa-user fa-3x"></i>
+                            <h3>{{count(Message::all())}} </h3>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="panel-eyecandy-title">Daily User Subscription
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary text-center no-boder">
+                        <div class="panel-body blue">
+                            <i class="fa fa-pencil-square-o fa-3x"></i>
+                            <h3>{{count(Message::all())}} </h3>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="panel-eyecandy-title">Pending Messages
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary text-center no-boder">
+                        <div class="panel-body green">
+                            <i class="fa fa-envelope fa-3x"></i>
+                            <h3>{{count(Message::all())}}</h3>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="panel-eyecandy-title">New Message Received
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary text-center no-boder">
+                        <div class="panel-body red">
+                            <i class="fa fa-user fa-3x"></i>
+                            <h3>{{count(Message::all())}}</h3>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="panel-eyecandy-title">New User Registered
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        
+       @stop

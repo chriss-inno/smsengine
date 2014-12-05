@@ -1,0 +1,142 @@
+            <!--Title section -->
+            <?php $__env->startSection('section-title'); ?>
+              Register New Employee
+            <?php $__env->stopSection(); ?>
+            <!--End Title section  -->
+             <!--Dashboard Section -->
+              <?php $__env->startSection('contents'); ?>
+            <div class="row">
+                
+               <?php echo Form::open(array('url' => 'useradd','role'=>'form','id'=>'frmdata')); ?>
+
+                  <div class="form-group">
+                        <div id="output" class="col-sm-12">
+                          <?php if(Session::has('error')): ?>
+                         <?php echo Session::get('error'); ?>
+
+                          <?php endif; ?>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                       <div class="col-sm-6"> 
+                       <?php echo Form::label('fname','First Name'); ?>
+
+                       <?php echo Form::text('fname',null,array('class'=>'form-control','id'=>'fname','required'=>'required')); ?>
+
+                       </div>
+                       <div class="col-sm-6"> 
+
+                       <?php echo Form::label('lname','Last Name'); ?>
+
+                       <?php echo Form::text('lname',null,array('class'=>'form-control','id'=>'lname','required'=>'required')); ?>
+
+                   
+                       </div>
+                  </div>
+                 
+                  <div class="form-group">
+                   <div class="row">
+                       <div class="col-sm-6"> 
+                         <?php echo Form::label('phone','Phone Number'); ?>
+
+                         <?php echo Form::text('phone',null,array('class'=>'form-control','id'=>'phone')); ?>
+
+                       </div>
+                       <div class="col-sm-6">
+                         <?php echo Form::label('email','Email'); ?>
+
+                         <?php echo Form::text('email',null,array('class'=>'form-control','id'=>'email')); ?>
+
+                       </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="row">
+                    <div class="col-sm-4"> 
+                       <?php echo Form::label('sex','Sex'); ?>
+
+                       <?php echo Form::select('sex',array(null=>'--Select--','male'=>'Male','femail'=>'Female'),null,array('class'=>'form-control','id'=>'sex')); ?>
+
+                      </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                   
+                       <?php echo Form::label('role','System role'); ?>
+
+                       <?php echo Form::select('role',array(null=>'--Select Role--','admin'=>'Administrator','normal'=>'normal'),null,array('class'=>'form-control','id'=>'sex')); ?>
+
+                      
+                  </div>
+                  <div class="form-group">
+                     
+                       <?php echo Form::label('username','Username'); ?>
+
+                       <?php echo Form::text('username',null,array('class'=>'form-control','id'=>'username','required'=>'required')); ?>
+
+                   
+                  </div>
+                  
+                  <div class="form-group">
+                     <div class="row">
+                    <div class="col-sm-6"> 
+                       <?php echo Form::label('pass','Password'); ?>
+
+                       <?php echo Form::password('pass',array('class'=>'form-control','id'=>'pass','required'=>'required')); ?>
+
+                    </div>
+                    <div class="col-sm-6"> 
+                       <?php echo Form::label('passc','Confirm Password'); ?>
+
+                       <?php echo Form::password('passc',array('class'=>'form-control','id'=>'pass','required'=>'required')); ?>
+
+                    </div>
+                  </div>
+                  <div class="form-group" style="margin-top:10px;">
+                  <?php echo Form::submit('Save',array('class'=>'btn btn-primary','id'=>'save')); ?>
+
+                  </div>
+                  
+                  </div>
+
+
+               <?php echo Form::close(); ?>
+
+    </div>
+<script>
+    //callback handler for form submit
+$("#frmdata").submit(function(e)
+{
+    $("#output").html("<h4><i class='fa fa-spin fa-spinner text-info'></i><span>please wait...</span><h4>");
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("<?php echo url('users'); ?>");
+    $.ajax(
+    {
+        url : formURL,
+        type: "POST",
+        data : postData,
+        success:function(data, textStatus, jqXHR)
+        {
+            //data: return data from server
+            $("#output").html(data);
+            setTimeout(function() {
+                $("#myModal").modal("hide");
+            }, 3000);
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            //if fails  
+          
+        }
+    });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+ 
+$("#ajaxform").submit(); //Submit  the FORM
+</script>
+
+           
+       <?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout.master", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

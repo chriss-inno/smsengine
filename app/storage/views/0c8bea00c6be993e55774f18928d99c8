@@ -1,0 +1,45 @@
+
+
+            <!--Title section -->
+            <?php $__env->startSection('section-title'); ?>
+              Create  New Message Category<small>subscriber will subscribe to this category</small>
+            <?php $__env->stopSection(); ?>
+            <!--End Title section  -->
+             <!--Dashboard Section -->
+              <?php $__env->startSection('contents'); ?>
+            <div class="row">
+                
+               <?php echo Form::open(array('url' => 'subscriptions','role'=>'form')); ?>
+
+                  <div class="form-group">
+                     
+                       <?php echo Form::label('category_name','Category Name'); ?>
+
+                       <?php echo Form::text('category_name',null,array('class'=>'form-control','id'=>'category_name','required'=>'required')); ?>
+
+                   
+                  </div>
+                  <div class="form-group">
+                     
+                       <?php echo Form::label('category_descriptions','Category introductory text (These text will be received by subscriber)'); ?>
+
+                       <?php echo Form::textarea('category_descriptions',null,array('class'=>'form-control','id'=>'category_descriptions','required'=>'required')); ?>
+
+                   
+                  </div>
+                 
+                  <div class="form-group">
+                   
+                       
+                       <?php echo Form::submit('Save',array('class'=>'btn btn-primary','id'=>'save')); ?>
+
+                      
+                  </div>
+
+               <?php echo Form::close(); ?>
+
+
+            </div>
+
+       <?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout.master", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

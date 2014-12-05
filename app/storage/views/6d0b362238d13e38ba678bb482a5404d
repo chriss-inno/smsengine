@@ -1,0 +1,85 @@
+<div id="largeModal">
+<form name="validity" method="post" action="<?php echo url('users/create'); ?>" id="FileUploader">
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><div class="row">
+           <div class="col-sm-12"> 
+             <h3 class="text-info">Register new User</h3>
+           </div>
+        </div>
+        <div class="row">
+        
+           <div class="form-group">
+             <table width="100%" border="0" cellspacing="0" cellpadding="0" id="employementhistory">
+               <tr>
+                 <td><div class="row">
+                   <div class="form-group">
+                    <div class="col-sm-4">
+                    <label for="organisation[]">Full Name</label>
+                    <input type="text" value="" class="form-control" name="organisation[]" id="organisation[]"/>
+                    </div>
+                    <div class="col-sm-3">
+                    <label for="organisation[]">Phone Number</label>
+                    <input type="text" value="" class="form-control" name="referencemethod[]" id="referencemethod[]"/>
+                    </div>
+                    <div class="col-sm-3">
+                    <label for="organisation[]">User Name</label>
+                    <input type="text" value="" class="form-control" name="dateproduced[]" id="dateproduced[]"/>
+                    </div>
+                    <div class="col-sm-2">
+                    <label for="imageattached[]">Image Attached</label>
+                    <select name="imageattached[]" id="imageattached[]" class="form-control">
+                      <option value="">--Select--</option>
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select>
+                    </div>
+              </div>
+          </div></td>
+               </tr>
+             </table>
+           </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+              <div class="form-group">
+                <div class="col-sm-1">
+                 <input type="submit" value="Save" class="btn btn-primary" />
+                
+                </div>
+                
+               
+           </div>
+      </div>
+       </div>
+                <div id="output" class="col-sm-12"></div>
+      </div>
+        </td>
+        </tr>
+        </table>
+        
+</form>
+</div>
+<script>
+    $(document).ready(function (){
+        $('#FileUploader').on('submit', function(e) {
+            e.preventDefault();
+            $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");
+            $(this).ajaxSubmit({
+                target: '#output',
+                success:  afterSuccess
+            });
+
+        });
+
+
+        function afterSuccess(){
+            setTimeout(function() {
+                $("#myModal").modal("hide");
+            }, 3000);
+        }
+    });
+</script>
