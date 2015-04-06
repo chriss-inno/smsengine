@@ -31,12 +31,23 @@
                           {{ Form::open(array('url' => 'processlogin','role'=>'form')) }}
                     
                             <fieldset>
-                                <div class="form-group">
-                                    
-                                    {{Form::email('email',Input::old('email'),array('class'=>'form-control','placeholder'=>'E-mail'))}}
-                                     <h4 class="text-danger">{{$errors->first('email')}}</h4>
+                                
+                                 <div class="form-group">
+                                     @if(Session::has('message'))
+                                       <p class="alert text-danger">{{ Session::get('message') }}</p>
+                                     @endif
                                     
                                 </div>
+
+                                <div class="form-group">
+                                    
+                                    {{Form::text('username',Input::old('username'),array('class'=>'form-control','placeholder'=>'Username'))}}
+                                     <h4 class="text-danger">{{$errors->first('username')}}</h4>
+                                    
+                                </div>
+                              
+                               
+
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                    

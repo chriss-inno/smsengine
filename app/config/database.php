@@ -57,10 +57,10 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'smsengine',
 			'username'  => 'root',
-			'password'  => '0ct0pus',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
+			'prefix'    => 'sms_',
 		),
 
 		'pgsql' => array(

@@ -184,19 +184,17 @@
                     <li>
                         <!-- user image section-->
                         <div class="user-section">
-                            <div class="user-section-inner">
-                                {{ HTML::image("assets/img/user.jpg","User profile ")}}
-                            </div>
+
                             <div class="user-info">
                                 <div>Mohamed <strong>Baruti</strong></div>
                                 <div class="user-text-online">
-                                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
+                                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Welcome
                                 </div>
                             </div>
                         </div>
                         <!--end user image section-->
                     </li>
-                    
+
                     <li class="">
                         <a href="{{url('home')}}"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                     </li>

@@ -30,19 +30,28 @@ class UserController extends \BaseController {
 	{
 		
         $rules = array(
-	    'email'=>'required|email',
+	    'username'=>'required',
 	    'password'=>'required'
 	    );
 
          $validator = Validator::make(Input::all(),$rules);
-         if ($validator->passes()) 
-         {
-             return Redirect::to('home');
-         }
-         else
-         {
-         	return Redirect::back()->withInput()->withErrors($validator);
-         }
+		         if ($validator->passes()) 
+		         {
+		             if (Auth::attempt(array('username'=>Input::get('email'), 'password'=>Input::get('password'))))
+		             {
+		                   return Redirect::to('users/dashboard')->with('message', 'You are now logged in!');
+		             } 
+		             else {
+		                      return Redirect::back()
+		                             ->with('message', 'Your username/password combination was incorrect')
+		                              ->withInput();
+                           }
+             
+		         }
+		         else
+		         {
+		         	return Redirect::back()->withInput()->withErrors($validator);
+		         }
 		
 		
 	}

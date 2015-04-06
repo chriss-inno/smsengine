@@ -1,219 +1,345 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <!--
-        ===
-        This comment should NOT be removed.
+<html>
 
-        Charisma v2.0.0
-
-        Copyright 2012-2014 Muhammad Usman
-        Licensed under the Apache License v2.0
-        http://www.apache.org/licenses/LICENSE-2.0
-
-        http://usman.it
-        http://twitter.com/halalit_usman
-        ===
-    -->
+<head>
     <meta charset="utf-8">
-    <title>Welcome to SMS Engine </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-    <meta name="author" content="Muhammad Usman">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Engine  | Welcome</title>
+    <!-- Core CSS - Include with every page -->
+    <?php echo HTML::style("assets/plugins/bootstrap/bootstrap.css" ); ?>
 
-    <!-- The styles -->
-    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+    <?php echo HTML::style("assets/font-awesome/css/font-awesome.css" ); ?>
 
-    <link href="css/charisma-app.css" rel="stylesheet">
-    <link href='bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
-    <link href='bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
-    <link href='bower_components/chosen/chosen.min.css' rel='stylesheet'>
-    <link href='bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
-    <link href='bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
-    <link href='bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
-    <link href='css/jquery.noty.css' rel='stylesheet'>
-    <link href='css/noty_theme_default.css' rel='stylesheet'>
-    <link href='css/elfinder.min.css' rel='stylesheet'>
-    <link href='css/elfinder.theme.css' rel='stylesheet'>
-    <link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
-    <link href='css/uploadify.css' rel='stylesheet'>
-    <link href='css/animate.min.css' rel='stylesheet'>
+    <?php echo HTML::style("assets/plugins/pace/pace-theme-big-counter.css" ); ?>
 
-    <!-- jQuery -->
-    <script src="bower_components/jquery/jquery.min.js"></script>
+    <?php echo HTML::style("assets/css/style.css" ); ?>
 
-    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <?php echo HTML::style("assets/css/main-style.css" ); ?>
 
-    <!-- The fav icon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
+
+     <!-- Page-Level CSS -->
+    <?php echo HTML::style("assets/plugins/morris/morris-0.4.3.min.css" ); ?>
+
 
 </head>
 
 <body>
-    <!-- topbar starts -->
-    <div class="navbar navbar-default" role="navigation">
-
-        <div class="navbar-inner">
-            <button type="button" class="navbar-toggle pull-left animated flip">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="img/logo20.png" class="hidden-xs"/>
-                <span>S-Engine</span></a>
-
-            <!-- user dropdown starts -->
-            <div class="btn-group pull-right">
-                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> admin</span>
-                    <span class="caret"></span>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Profile</a></li>
-                    <li class="divider"></li>
-                    <li><a href="login.html">Logout</a></li>
-                </ul>
+                <a class="navbar-brand" href="<?php echo url('home'); ?>">
+                    <?php echo HTML::image("assets/img/logo.png","SMS Engine logo"); ?>
+
+                </a>
             </div>
-            <!-- user dropdown ends -->
-
-           
-
-            <ul class="collapse navbar-collapse nav navbar-nav top-menu">
-                               
-            </ul>
-
-        </div>
-    </div>
-    <!-- topbar ends -->
-<div class="ch-container">
-    <div class="row">
-        
-        <!-- left menu starts -->
-        <div class="col-sm-2 col-lg-2">
-            <div class="sidebar-nav">
-                <div class="nav-canvas">
-                    <div class="nav-sm nav nav-stacked">
-
-                    </div>
-                    <ul class="nav nav-pills nav-stacked main-menu">
-                        <li class="nav-header">Main</li>
-                        <li><a class="ajax-link" href="<?php echo url('home'); ?>"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
+            <!-- end navbar-header -->
+            <!-- navbar-top-links -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- main dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-3x"></i>
+                    </a>
+                    <!-- dropdown-messages -->
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong><span class=" label label-danger">Mohamed Barut</span></strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Welcome to SMS Engine, the intelligent  messaging portal every found...</div>
+                            </a>
                         </li>
-                        <li><a class="ajax-link" href="<?php echo url('users'); ?>"><i class="glyphicon glyphicon-eye-open"></i><span>Users</span></a>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong><span class=" label label-info">Mohamed Barut</span></strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>For real you will love this portal, full with real time monitoring...</div>
+                            </a>
                         </li>
-                        <li><a class="ajax-link" href="<?php echo url('subscribers'); ?>"><i
-                                    class="glyphicon glyphicon-edit"></i><span>Subscribers</span></a></li>
-                        <li><a class="ajax-link" href="<?php echo url('messages'); ?>"><i class="glyphicon glyphicon-list-alt"></i><span> Messeges</span></a>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong><span class=" label label-success">SMS Engine Admin</span></strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>The complete functional system will be amaizing Just need some time...</div>
+                            </a>
                         </li>
-                        <li><a class="ajax-link" href="subscriptions"><i class="glyphicon glyphicon-font"></i><span>Subscriptions</span></a>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         </li>
-                        <li><a class="ajax-link" href="<?php echo url('reports'); ?>"><i class="glyphicon glyphicon-picture"></i><span> Reports</span></a></li>
                     </ul>
+                    <!-- end dropdown-messages -->
+                </li>
+
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i>
+                    </a>
+                    <!-- dropdown alerts-->
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i>New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i>3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i>Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i>New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i>Server Rebooted Message  sent fail
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- end dropdown-alerts -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-3x"></i>
+                    </a>
+                    <!-- dropdown user-->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="<?php echo url('logout'); ?>"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                    </ul>
+                    <!-- end dropdown-user -->
+                </li>
+                <!-- end main dropdown -->
+            </ul>
+            <!-- end navbar-top-links -->
+
+        </nav>
+        <!-- end navbar top -->
+
+        <!-- navbar side -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <!-- sidebar-collapse -->
+            <div class="sidebar-collapse">
+                <!-- side-menu -->
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <!-- user image section-->
+                        <div class="user-section">
+
+                            <div class="user-info">
+                                <div>Mohamed <strong>Baruti</strong></div>
+                                <div class="user-text-online">
+                                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Welcome
+                                </div>
+                            </div>
+                        </div>
+                        <!--end user image section-->
+                    </li>
+
+                    <li class="">
+                        <a href="<?php echo url('home'); ?>"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Subscribers<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo url('subscribers/create'); ?>">Register</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('subscribers'); ?>">Manage</a>
+                            </li>
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-flask fa-fw"></i> Employees<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo url('users/create'); ?>">Register</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('users'); ?>">Manage</a>
+                            </li>
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Subscriptions<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo url('subscriptions/create'); ?>">New Category</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('subscriptions'); ?>">Mange Categories</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('subscriptions/add'); ?>">Subscribe User</a>
+                            </li>
+                           
+                        </ul>
+                    <li>
+                        <a href="#"><i class="fa fa-table fa-fw"></i> Schedule Message<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo url('msgschedule'); ?>">Create Schedule</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('mschedule'); ?>">Manage Schedule</a>
+                            </li>
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+                        <!-- second-level-items -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Messages<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo url('compose'); ?>">Compose Message</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('sent'); ?>">View sent Messages</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('pending'); ?>">Pending Messages</a>
+                            </li>
+                             <li>
+                                <a href="<?php echo url('messages'); ?>">All Messages</a>
+                            </li>
+                            
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+                     <li>
+                        <a href="#"><i class="fa fa-edit fa-fw"></i>Phone Book</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Import/Export<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Import Data</a>
+                            </li>
+                            <li>
+                                <a href="#">Export Data</a>
+                            </li>
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+                </ul>
+                <!-- end side-menu -->
+                <!-- end side-menu -->
+            </div>
+            <!-- end sidebar-collapse -->
+        </nav>
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+        <div id="page-wrapper">
+
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header"><?php echo $__env->yieldContent('section-title'); ?></h1>
                 </div>
+                <!--End Page Header -->
             </div>
+
+            <!--Contents start make sure each item for contents is contained in div with class row-->
+            <?php echo $__env->yieldContent('contents'); ?>
+            <!--Contents Ends -->
+
         </div>
-        <div id="content" class="col-lg-10 col-sm-10">
-            <!-- content starts -->
-            <!-- breadcrumb starts -->
-      <div>
-            
-    <ul class="breadcrumb">
-    <?php echo $__env->yieldContent('breadcrumb'); ?>
-       
-    </ul>
-</div>
-<!-- breadcrumb ends -->
-<?php echo $__env->yieldContent('contents'); ?>
+        <!-- end page-wrapper -->
 
-   
-   
-        <!--/span-->
-        <!-- left menu ends -->
+    </div>
+    <!-- end wrapper -->
 
-        <noscript>
-            <div class="alert alert-block col-md-12">
-                <h4 class="alert-heading">Warning!</h4>
+    <!-- Core Scripts - Include with every page -->
+     <?php echo HTML::script("assets/plugins/jquery-1.10.2.js"); ?>
 
-                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
-                    enabled to use this site.</p>
-            </div>
-        </noscript>
+     <?php echo HTML::script("assets/plugins/bootstrap/bootstrap.min.js"); ?>
 
-        <!--/#content.col-md-0-->
-</div><!--/fluid-row-->
-   <hr>
+     <?php echo HTML::script("assets/plugins/metisMenu/jquery.metisMenu.js"); ?>
 
-    
-    <footer class="row" style="margin-top:30px;">
-        <p class="col-md-12 col-sm-12 col-xs-12 copyright" align="center">copyright &copy; <a href="#" target="_blank">SMS Engine</a> <?php echo date("Y"); ?></p>
-    </footer>
+     <?php echo HTML::script("assets/plugins/pace/pace.js"); ?>
 
-</div><!--/.fluid-container-->
-
-<!-- external javascript -->
- <?php echo HTML::style("font-awesome/css/font-awesome.css"); ?>
-
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- library for cookie management -->
-<script src="js/jquery.cookie.js"></script>
-<!-- calender plugin -->
-<script src='bower_components/moment/min/moment.min.js'></script>
-<script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
-<!-- data table plugin -->
-<script src='js/jquery.dataTables.min.js'></script>
-
-<!-- select or dropdown enhancer -->
-<script src="bower_components/chosen/chosen.jquery.min.js"></script>
-<!-- plugin for gallery image view -->
-<script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
-<!-- notification plugin -->
-<script src="js/jquery.noty.js"></script>
-<!-- library for making tables responsive -->
-<script src="bower_components/responsive-tables/responsive-tables.js"></script>
-<!-- tour plugin -->
-<script src="bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
-<!-- star rating plugin -->
-<script src="js/jquery.raty.min.js"></script>
-<!-- for iOS style toggle switch -->
-<script src="js/jquery.iphone.toggle.js"></script>
-<!-- autogrowing textarea plugin -->
-<script src="js/jquery.autogrow-textarea.js"></script>
-<!-- multiple file upload plugin -->
-<script src="js/jquery.uploadify-3.1.min.js"></script>
-<!-- history.js for cross-browser state change on ajax -->
-<script src="js/jquery.history.js"></script>
-<!-- application script for Charisma demo -->
-<script src="js/charisma.js"></script>
-<script src="js/jquery-1.11.1.min.js"></script>
-<script>
-$.noConflict();
-// Code that uses other library's $ can follow here.
-</script>
-<script type="text/javascript" language="javascript">
-        $(document).ready(function (){
-            $('#FileUploader').on('submit', function(e) {
-                e.preventDefault();
-                $("#output").html("<h3><i class='fa fa-spin fa-spinner '></i><span>Making changes please wait...</span><h3>");
-                $(this).ajaxSubmit({
-                    target: '#output',
-                    success:  afterSuccess
-                });
-
-            });
+     <?php echo HTML::script("assets/scripts/siminta.js"); ?>
 
 
-            function afterSuccess(){
-                    setTimeout(function() {
-                        $("#myModal").modal("hide");
-                    }, 3000);
-                    $("#listuser").load("<?php echo url("user/list") ?>")
-            }
-        });
-    </script>
+      <!-- Page-Level Plugin Scripts-->
+    <?php echo HTML::script("assets/plugins/morris/raphael-2.1.0.min.js"); ?>
+
+    <?php echo HTML::script("assets/plugins/morris/morris.js"); ?>
+
+    <?php echo HTML::script("assets/scripts/morris-demo.js"); ?>
+
+
 
 </body>
+
 </html>

@@ -1,31 +1,23 @@
-<?php $__env->startSection('breadcrumb'); ?>
-       <li><a href="<?php echo url("home"); ?>">Home</a></li>
-       <li><a href="<?php echo url("subscribers"); ?>">Manage Subscribers</a></li>
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('contents'); ?>
-
-     <div id="listuser">
-     <div class="row">
-    <div class="box col-md-12">
-    <div class="box-inner">
-    <div class="box-header well" data-original-title="">
-        <h2><i class="glyphicon glyphicon-user"></i> Manage Subscriptions Categories</h2>
-
-        <div class="box-icon">
-            <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-user"></i>New Category</a>
+            <!--Title section -->
+            <?php $__env->startSection('section-title'); ?>
+              Message Categories
+            <?php $__env->stopSection(); ?>
+            <!--End Title section  -->
+             <!--Dashboard Section -->
+              <?php $__env->startSection('contents'); ?>
             
-        </div>
-    </div>
-    <div class="box-content">
-   
-<?php echo $__env->make("subscriptions.list", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    </div>
-    </div>
-    </div>
-    <!--/span-->
+                <div class="row" style="margin-bottom:10px;">
+                    <div class="col-sm-2 col-sm-offset-10 ">
+                       <a data-toggle="modal" href="<?php echo url('subscriptions/create'); ?>" class="btn btn-primary"> Add Category</a>
+                    </div>
+                </div>
 
-    </div>
-     </div>
-    
-   <?php $__env->stopSection(); ?>
+                <?php echo $__env->make('subscriptions.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php echo HTML::script("assets/bootstrap.min.js"); ?>
+
+<?php echo HTML::script("assets/jquery.min.js"); ?>
+
+
+       <?php $__env->stopSection(); ?>
 <?php echo $__env->make("layout.master", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

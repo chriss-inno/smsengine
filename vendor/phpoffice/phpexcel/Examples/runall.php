@@ -59,6 +59,7 @@ $aTests = array(
 	, '11documentsecurity-xls.php'
 	, '12cellProtection.php'
 	, '13calculation.php'
+    , '13calculationCyclicFormulae.php'
 	, '14excel5.php'
 	, '15datavalidation.php'
 	, '15datavalidation-xls.php'
@@ -97,6 +98,7 @@ $aTests = array(
 	, '36chartreadwritePDF.php'
 	, '37page_layout_view.php'
 	, '38cloneWorksheet.php'
+    , '39dropdown.php'
 	, '40duplicateStyle.php'
 	, 'OOCalcReader.php'
 	, 'OOCalcReaderPCLZip.php'
@@ -106,7 +108,7 @@ $aTests = array(
 	, 'GnumericReader.php'
 );
 
-// First, clear all results
+// First, clear all previous run results
 foreach ($aTests as $sTest) {
 	@unlink( str_replace('.php', '.xls', 	$sTest) );
 	@unlink( str_replace('.php', '.xlsx', 	$sTest) );
